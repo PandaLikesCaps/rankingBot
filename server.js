@@ -9,18 +9,13 @@ app.use(express.static("public"))
 
 async function startApp() {
   await rbx.cookieLogin(cookie)
-  let currentUser = await rbx.getCurrentUser()
-  console.log(currentUser.UserName);
 }
 
 startApp();
 
 app.get('/ranker', (req, res) => {
-  var User = req.param("userId");
-  var Rank = req.param("rank");
-
-  rbx.setRank(groupId, parseInt(User), parseInt(Rank));
-  res.json("Ranked")
+  rbx.setRank(groupId, parseInt(req.param("userId"), parseInt(req.param("rank"));
+  res.json("Ranked user!")
 })
 
 const listener = app.listen(process.env.PORT, () => {
