@@ -5,16 +5,16 @@ const express = require("express");
 const rbx = require("noblox.js");
 const app = express();
 
-app.use(express.static("public"))
+app.use(express.static("public"));
 
 async function startApp() {
-  await rbx.cookieLogin(cookie)
+  await rbx.cookieLogin(cookie);
 }
 
 startApp();
 
 app.get('/ranker', (req, res) => {
-  rbx.setRank(groupId, parseInt(req.param("userId"), parseInt(req.param("rank"));
+  rbx.setRank(groupId, parseInt(req.param("userId")), parseInt(req.param("rank")));
   res.json("Ranked user!")
 })
 
